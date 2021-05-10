@@ -55,7 +55,7 @@ Design a bot that plays the game best under all circumstances. This means that w
 
 ### RULES FOR THE BOT:
 
-•	The program that tests the bots is written in Python3 and each bot has a function "nextMove" that gets called. 
+•	The program that tests the bots is written in Python3* and each bot has a function "nextMove" that gets called. 
 
 •	The inputs for the function are 1) The moves played so far, 2) The remaining possible moves if there is a finite number of them
 
@@ -63,22 +63,24 @@ Design a bot that plays the game best under all circumstances. This means that w
 
 •	If the function returns an integer that is not a legal move, they earn a penalty. If, during a single game a player gets 3 penalties, they are forced to choose 1 and they lose the game. 
 
+*Specifically, the bot has to work in the conda environment that can be loaded from sylverEnv.txt.
 
 
 # Usage
 
 This package contains code for testing a new bot. 
-In order to test your bot, please download the following list of files from this folder into the same folder on your device (the files must be in a location that can import python modules, specifically math and random):
+To make sure that your bot is compatible with the competition testing protocol, please download the `sylverEnv.txt` file and run `conda create --name <env> --file sylverEnv.txt` in the command line. 
+In order to test your bot, please download the following list of files from this folder into the same folder on your device:
 - `testingSylver-version-1.1.py`
 - `numericalSemigroupLite.py`
 
 The following files are optional but will allow you to test your bot against my bots:
-- bestBot.py
-- betterBot.py
-- mediumBot.py
-- randomBot.py
-- worstBot.py
-- testingBot4.py
+- `bestBot.py`
+- `betterBot.py`
+- `mediumBot.py`
+- `randomBot.py`
+- `worstBot.py`
+- `testingBot4.py`
 
 Once these files are downloaded into a folder, add a file called "myOwnBot.py" which has a class "myBot" with a function "nextMove" to the folder.
 
