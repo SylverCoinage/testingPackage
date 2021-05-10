@@ -57,11 +57,15 @@ Design a bot that plays the game best under all circumstances. This means that w
 
 •	The program that tests the bots is written in Python3* and each bot has a function "nextMove" that gets called. 
 
-•	The inputs for the function are 1) The moves played so far, 2) The remaining possible moves if there is a finite number of them
+•	The inputs for the function are 1) The moves played so far, 2) The remaining possible moves if there is a finite number of them, 3) The remaining time the bot has to make a move
 
 •	The function returns an integer which represents its move
 
-•	If the function returns an integer that is not a legal move, they earn a penalty. If, during a single game a player gets 3 penalties, they are forced to choose 1 and they lose the game. 
+•	If the function returns an integer that is not a legal move, they lose.
+
+•	The bot has a chess clock... The time it takes for the program to verify your bot's move is taken out of your time. 
+
+•	The largest move your bot can play is ____
 
 *Specifically, the bot has to work in the conda environment that can be loaded from sylverEnv.txt.
 
