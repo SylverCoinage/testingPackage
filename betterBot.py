@@ -5,7 +5,7 @@ class myBot:
     def __init__(self):
         pass
     
-    def nextMove(self, movesPlayed, remainingGaps = []):
+    def nextMove(self, movesPlayed, remainingGaps = [], playerTime = 36):
         movesPlayed = [int(i) for i in movesPlayed]
         if(len(remainingGaps)>0):
             remainingMoves = [i for i in remainingGaps]
