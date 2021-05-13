@@ -5,7 +5,7 @@ class testBot:
     def __init__(self):
         pass
     
-    def nextMove(self, movesPlayed, remainingGaps = []):
+    def nextMove(self, movesPlayed, remainingGaps = [], playerTime = 36):
         if (len(movesPlayed) == 0):
             return random.choice([5, 7, 11, 13, 17, 19, 23, 29])
         elif((3 in movesPlayed) and (2 not in movesPlayed)):
