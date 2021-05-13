@@ -71,7 +71,7 @@ def SylverCoinageGame(Player1, Player2, numberOfGames = 100, startingPosition = 
         while(1 not in movesPlayed):
             if(turn == -1):
                 start = time.perf_counter()
-                move = Player1(movesPlayed, remainingGaps)
+                move = Player1(movesPlayed, remainingGaps, p1_time)
                 p1_time += time.perf_counter() - start
                 p1_moves += 1
                 if(p1_time > 36):
@@ -79,7 +79,7 @@ def SylverCoinageGame(Player1, Player2, numberOfGames = 100, startingPosition = 
                     move = 1
             else:
                 start = time.perf_counter()
-                move = Player2(movesPlayed, remainingGaps)
+                move = Player2(movesPlayed, remainingGaps, p2_time)
                 p2_time += time.perf_counter() - start
                 p2_moves += 1
                 if(p2_time > 36):
@@ -112,7 +112,7 @@ def SylverCoinageGame(Player1, Player2, numberOfGames = 100, startingPosition = 
             else:
                 if(turn == -1):
                     p1_penalties += 1
-                    if(p1_penalties >= 3):
+                    if(p1_penalties >= 1):
                         print("Too many penalties, you lose")
                         movesPlayed.append(1)
                         p1_penalities = 0
@@ -123,7 +123,7 @@ def SylverCoinageGame(Player1, Player2, numberOfGames = 100, startingPosition = 
                         continue
                 else:
                     p2_penalties += 1
-                    if(p2_penalties >= 3):
+                    if(p2_penalties >= 1):
                         print("Too many penalties, you lose")
                         movesPlayed.append(1)
                         p1_penalities = 0
