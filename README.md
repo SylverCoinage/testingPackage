@@ -63,9 +63,9 @@ Design a bot that plays the game best under all circumstances. This means that w
 
 •	If the function returns an integer that is not a legal move, they lose.
 
-•	The bot has a chess clock... The time it takes for the program to verify your bot's move is taken out of your time. 
+•	The bot has a chess clock with 36 total seconds. The time it takes for the program to verify your bot's move is taken out of your time. 
 
-•	The largest move your bot can play is ____
+•	During the competition, the largest move your bot can play is 10000000. For the purposes of testing your bot there is no cap on the move played. 
 
 *Specifically, the bot has to work in the conda environment that can be loaded from sylverEnv.txt.
 
@@ -75,7 +75,7 @@ Design a bot that plays the game best under all circumstances. This means that w
 This package contains code for testing a new bot. 
 To make sure that your bot is compatible with the competition testing protocol, please download the `sylverEnv.txt` file and run `conda create --name <env> --file sylverEnv.txt` in the command line. 
 In order to test your bot, please download the following list of files from this folder into the same folder on your device:
-- `testingSylver-version-1.1.py`
+- `testingSylver-version-1.2.py`
 - `numericalSemigroupLite.py`
 
 The following files are optional but will allow you to test your bot against my bots:
@@ -88,4 +88,4 @@ The following files are optional but will allow you to test your bot against my 
 
 Once these files are downloaded into a folder, add a file called "myOwnBot.py" which has a class "myBot" with a function "nextMove" to the folder.
 
-Then, simply run the code `testingSylver-version-1.1.py` to test your bot. 
+Then, simply run the code `testingSylver-version-1.2.py` to test your bot. 
