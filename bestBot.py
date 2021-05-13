@@ -57,7 +57,7 @@ class myBot:
                 potentials.append(a)
         return potentials
     
-    def nextMove(self, movesPlayed, remainingGaps = []):
+    def nextMove(self, movesPlayed, remainingGaps = [], playerTime = 36):
         movesPlayed = [int(i) for i in movesPlayed]
         minMoves = self.minGenFunction(movesPlayed)
         possibleWinningMove = self.checkForWin(minMoves)
