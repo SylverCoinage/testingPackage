@@ -84,7 +84,6 @@ The following files are optional but will allow you to test your bot against my 
 - `mediumBot.py`
 - `randomBot.py`
 - `worstBot.py`
-- `testingBot4.py`
 
 Once these files are downloaded into a folder, add a file called "myOwnBot.py" which has a class "myBot" with a function "nextMove" to the folder.
 
