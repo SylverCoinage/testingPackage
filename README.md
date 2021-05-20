@@ -61,7 +61,7 @@ Design a bot that plays the game best under all circumstances. This means that w
 
 •	The function returns an integer which represents its move
 
-•	If the function returns an integer that is not a legal move, they lose.
+•	If the function returns an integer that is not a legal move, or returns something other than an integer, they lose. Please note, if you return a numpy int convert it to just int, otherwise the code will not accept it.
 
 •	The bot has a chess clock with 30 total seconds.
 
