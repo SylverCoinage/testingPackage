@@ -44,6 +44,9 @@ def legalMove(move, movesPlayed, remainingGaps = []):
     S = NumericalSemigroup(movesPlayed)
     return (move not in S)
 
+def legalMove2(move, remainingGaps):
+    return move in remainingGaps
+
 def SylverCoinageGame(Player1, Player2, numberOfGames = 100, startingPosition = []):
     p1_wins = 0
     p2_wins = 0
@@ -54,6 +57,7 @@ def SylverCoinageGame(Player1, Player2, numberOfGames = 100, startingPosition = 
     currentGame = 0
     lossByPenalties = False
     while(currentGame < numberOfGames):
+        remainGapsUpTo10 = [i for i in range(1, 1000001)]
         remainingGaps = []
         movesPlayed = [i for i in startingPosition]
         if(0 in startingPosition):
@@ -74,7 +78,7 @@ def SylverCoinageGame(Player1, Player2, numberOfGames = 100, startingPosition = 
                 move = Player1(movesPlayed, remainingGaps, p1_time)
                 p1_time += time.perf_counter() - start
                 p1_moves += 1
-                if(p1_time > 36):
+                if(p1_time > 30):
                     print("Player 1, you ran out of time!")
                     move = 1
             else:
@@ -82,11 +86,11 @@ def SylverCoinageGame(Player1, Player2, numberOfGames = 100, startingPosition = 
                 move = Player2(movesPlayed, remainingGaps, p2_time)
                 p2_time += time.perf_counter() - start
                 p2_moves += 1
-                if(p2_time > 36):
+                if(p2_time > 30):
                     print("Player 2, you ran out of time!")
                     move = 1
             gameStart = time.perf_counter()
-            if legalMove(move, movesPlayed, remainingGaps):
+            if legalMove2(move, remainGapsUpTo10):
                 movesPlayed.append(move)
                 if ((gcd_list(movesPlayed) != 1) and(len(remainingGaps) == 0)):
                     turn = turn * (-1)
@@ -109,6 +113,20 @@ def SylverCoinageGame(Player1, Player2, numberOfGames = 100, startingPosition = 
                                 newGaps.append(i)
                         remainingGaps = [i for i in newGaps]
                     turn = turn * (-1)
+                listUpToMax = [i for i in range(0, max(remainGapsUpTo10))]
+                linearCombosUpTo10 = list(set(listUpToMax) - set(remainGapsUpTo10))
+                newGapsUpTo10 = []
+                for i in remainGapsUpTo10:
+                    i_stays = True
+                    for j in linearCombosUpTo10:
+                        if((i - j) >= 0) and ((i-j)%move == 0):
+                            i_stays = False
+                            break
+                        else:
+                            continue
+                    if (i_stays):
+                        newGapsUpTo10.append(i)
+                remainGapsUpTo10 = [i for i in newGapsUpTo10]
             else:
                 if(turn == -1):
                     p1_penalties += 1
@@ -133,11 +151,6 @@ def SylverCoinageGame(Player1, Player2, numberOfGames = 100, startingPosition = 
                         print("That was not a legal move")
                         continue
             currentAdditionalTime = time.perf_counter() - gameStart
-            turnish = (-1)**(len(movesPlayed)%2)
-            if(turnish == -1):
-                p1_time += currentAdditionalTime
-            else:
-                p2_time += currentAdditionalTime
             gameManagementTotalTime += currentAdditionalTime
         if(lossByPenalties):
             turn = turn*(-1)
